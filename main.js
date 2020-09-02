@@ -19,9 +19,24 @@ $(document).ready(function(){
     }
   );
 
-
-
-
-
   // click icona next o press tasto right
+  $(".next").click(
+    function(){
+      // salvo img con class="active"
+        // rimuovo class="active"
+      var imgActive = $("img.active");
+      imgActive.removeClass("active");
+
+      // se img con class="active" ha class="last" -> img successiva = img con class="first"
+      if (imgActive.hasClass("last")) {
+        var nextImg = $("img.first");
+      } else {
+        // salvo img precedente a quella con class="active"
+        var nextImg = imgActive.next();
+      }
+        // a img precedente aggiungo la class="active"
+        nextImg.addClass("active");
+    }
+  );
+
 });
