@@ -3,7 +3,7 @@ $(document).ready(function(){
   $(".prev").click(
     function(){
       // salvo img con class="active"
-        // rimuovo class="active"
+        // rimuovo class="active" dall'immagine e dal circle
       var imgActive = $("img.active");
       imgActive.removeClass("active");
 
@@ -13,9 +13,18 @@ $(document).ready(function(){
       } else {
         // salvo img precedente a quella con class="active"
         var prevImg = imgActive.prev();
-      }
-        // a img precedente aggiungo la class="active"
-        prevImg.addClass("active");
+      };
+      // a img precedente aggiungo la class="active"
+      prevImg.addClass("active");
+
+      var circleActive = $(".nav > i.active");
+      circleActive.removeClass("active");
+      if (circleActive.hasClass("first")) {
+        var prevCircle = $(".nav > i.last");
+      } else{
+        var prevCircle = circleActive.prev();
+      };
+      prevCircle.addClass("active");
     }
   );
 
@@ -33,10 +42,22 @@ $(document).ready(function(){
       } else {
         // salvo img precedente a quella con class="active"
         var nextImg = imgActive.next();
-      }
-        // a img precedente aggiungo la class="active"
-        nextImg.addClass("active");
+      };
+      // a img precedente aggiungo la class="active"
+      nextImg.addClass("active");
     }
   );
 
 });
+
+// function slidePrev(selettore) {
+//   var elementActive = $ (selettore".active");
+//   elementActive.removeClass("active");
+//
+//   if (elementActive.hasClass("first")) {
+//     var prevElement = $(selettore".last");
+//   } else {
+//     var prevElement = elementActive.next();
+//   };
+//   return prevElement.addClass("active");
+// }
